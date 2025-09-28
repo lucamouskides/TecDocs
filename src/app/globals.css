@@ -1,26 +1,34 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@layer base {
+  body {
+    background-color: theme('colors.neutral.base-2');
+    color: theme('colors.neutral.base-8');
+    font-family: theme('fontFamily.space');
+    font-size: theme('fontSize.body');
+  }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  /* Define the precise styles for each semantic heading */
+  .h1, .prose h1 {
+    @apply font-space font-normal text-h1 leading-h1 tracking-h1;
+  }
+  .h2, .prose h2 {
+    @apply font-space font-normal text-h2 leading-h2 tracking-h2;
+  }
+  .h3, .prose h3 {
+    @apply font-space font-normal text-h3 leading-h3 tracking-h3;
+  }
+  .h4, .prose h4 {
+    @apply font-space font-normal text-h4 leading-h4 tracking-h4;
+  }
+  .h5, .prose h5 {
+    @apply font-space font-normal text-h5 leading-h5 uppercase;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Add this to the bottom of your globals.css file */
+.button-editor .ProseMirror {
+  display: inline; /* This makes the editor behave like text inside a button */
 }
